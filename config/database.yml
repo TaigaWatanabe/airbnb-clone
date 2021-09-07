@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password: password
+  host: <%= ENV['DB_HOST'] %>
+
+development:
+  <<: *default
+  database: airbnb-clone_development
+
+test:
+  <<: *default
+  database: airbnb-clone_test
+
+production:
+  <<: *default
+  database: airbnb-clone_production
+  username: airbnb-clone
+  password: <%= ENV['airbnb-clone_DATABASE_PASSWORD'] %>
