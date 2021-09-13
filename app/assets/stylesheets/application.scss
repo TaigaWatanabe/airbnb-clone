@@ -12,3 +12,28 @@
   padding-bottom: 1em;
   border-bottom: 1px silver solid;
 }
+/* registrations edit.html.erb */
+.edit-home {
+  margin: auto;
+
+  .left-card {
+    height: 30%;
+    width: 20%;
+    margin-right: 5%;
+  }
+
+  .right-card {
+    width: 75%;
+  }
+
+  .input-area {   
+    margin: auto;
+    width: 80%;
+
+    .input-wid {      
+      margin-bottom: 2em;
+    }      
+    
+  }
+}
+
