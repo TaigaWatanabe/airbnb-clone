@@ -5,22 +5,22 @@
     <%= render "users/shared/error_messages", resource: resource %>
 
     <div class="field signup-field">        
-        <%= f.text_field :name, placeholder: "Full Name", autofocus: true, autocomplete: "name", class: "wid" %>
+        <%= f.text_field :name, placeholder: "Full Name", autofocus: true, autocomplete: "name", class: "wid form-control" %>
     </div>
 
     <div class="field  signup-field">        
-        <%= f.email_field :email, placeholder: "Email", autofocus: true, autocomplete: "email", class: "wid" %>
+        <%= f.email_field :email, placeholder: "Email", autofocus: true, autocomplete: "email", class: "wid form-control" %>
     </div>
 
     <div class="field  signup-field">        
-        <%= f.password_field :password, placeholder: "Password", autocomplete: "new-password" , class: "wid" %><br>
+        <%= f.password_field :password, placeholder: "Password", autocomplete: "new-password" , class: "wid form-control" %><br>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %><br/>        
     </div>
 
     <div class="field signup-field">        
-        <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", autocomplete: "new-password", class: "wid" %>
+        <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", autocomplete: "new-password", class: "wid form-control" %>
     </div>
 
     <div class="actions signup-field signup-bottom">
