@@ -19,8 +19,10 @@
                 <% if user_signed_in? %>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <%= user_profile_image(current_user, "rounded-circle profile-small")%>
                             <%= current_user.name %>
-                        </a>
+                        </a>                           
+
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">                        
                             <%= link_to "Manage Listing", class: "dropdown-item"%>
                             <%= link_to "List Your Space", class: "dropdown-item"%>

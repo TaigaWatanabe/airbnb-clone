@@ -1,0 +1,21 @@
+<div class="show-page container">
+    <div class="row">
+    <%# left side %>
+        <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <%= user_profile_image(@user, "profile") %>
+                <%#= image_tag '#', class: "card-img-top" %>
+                <%# <img src="..." class="card-img-top"> %>
+                <h5 class="card-header text-center">Verification</h5>
+                <ul class="card-body list-style">
+                    <li>Facebook</li>
+                    <li>Phone Number</li>
+                </tr>
+            </div>
+        </div>
+        <%# right side %>
+        <div class="col-8 ml-5">
+            <h5 class="user-name"><%= @user.name %></h5>
+        </div>
+    </div>
+</div>
