@@ -4,7 +4,7 @@
             Create your beautiful place
         </div>
         <div class="card-body">
-            <%= form_for :room do |f| %>
+            <%= form_for @room do |f| %>
                 <div class="row row-cols-3">
                     <div class="col">
                         <h5>Home Type</h5>
@@ -12,19 +12,19 @@
                     </div>
                     <div class="col">
                         <h5>Room Type</h5>
-                        <%= f.select :home_type, {'Entire': 'Entire', 'Private': 'Private', 'Shared': 'Shared'}, { include_blank: 'Select...'}, { class: 'form-control' } %>
+                        <%= f.select :room_type, {'Entire': 'Entire', 'Private': 'Private', 'Shared': 'Shared'}, { include_blank: 'Select...'}, { class: 'form-control' } %>
                     </div>
                     <div class="col">
                         <h5>Guests</h5>
-                        <%= f.select :home_type, {'1': '1', '2': '2', '3': '3', '4+': '4+'}, { include_blank: 'Select...'}, { class: 'form-control' } %>
+                        <%= f.select :accommodation, {'1': 1, '2': 2, '3': 3, '4+': 4}, { include_blank: 'Select...'}, { class: 'form-control' } %>
                     </div>
                     <div class="col mt-3">
                         <h5>Bedrooms</h5>
-                        <%= f.select :home_type, {'1': '1', '2': '2', '3': '3', '4+': '4+'}, { include_blank: 'Select...'}, { class: 'form-control' } %>
+                        <%= f.select :bedroom_count, {'1': 1, '2': 2, '3': 3, '4+': 4}, { include_blank: 'Select...'}, { class: 'form-control' } %>
                     </div>
                     <div class="col mt-3">
                         <h5>Bathrooms</h5>
-                        <%= f.select :home_type, {'1': '1', '2': '2', '3': '3', '4+': '4+'}, { include_blank: 'Select...'}, { class: 'form-control' } %>
+                        <%= f.select :bathroom_count, {'1': 1, '2': 2, '3': 3, '4+': 4}, { include_blank: 'Select...'}, { class: 'form-control' } %>
                     </div>
                 </div>
                 <%= f.submit "Create My Room", class: "btn btn-info btn-block mt-4" %>
