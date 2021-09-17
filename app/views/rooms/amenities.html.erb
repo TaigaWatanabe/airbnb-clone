@@ -1,0 +1,39 @@
+<div class="row container amenities">
+    <div class="card left-card">
+        <div class="card-body">
+            <%= render "sidebar" %>
+        </div>
+    </div>
+    <div class="card right-card">
+        <div class="card-header">
+            Amenities
+        </div>
+        <div class="card-body">
+            <%= form_for @room do |f| %>
+                <div class="row row-cols-3">
+                    <div class="col mt-3">
+                        <%= check_box_tag(:tv) %>
+                        <%= label_tag(:tv, "TV") %>
+                    </div>
+                    <div class="col mt-3">
+                        <%= check_box_tag(:kitchen) %>
+                        <%= label_tag(:kitchen, "Kitchen") %>
+                    </div>
+                    <div class="col mt-3">
+                        <%= check_box_tag(:internet) %>
+                        <%= label_tag(:internet, "Internet") %>
+                    </div>
+                    <div class="col mt-3">
+                        <%= check_box_tag(:heating) %>
+                        <%= label_tag(:heating, "Heating") %>
+                    </div>
+                    <div class="col mt-3">
+                        <%= check_box_tag(:air_conditioning) %>
+                        <%= label_tag(:air_conditioning, "Air Conditioning") %>
+                    </div>   
+                </div>    
+                <%= f.submit "Save", class: "btn btn-info btn-block mt-4 mb-4" %>
+            <% end %>
+        </div>
+    </div>
+</div>

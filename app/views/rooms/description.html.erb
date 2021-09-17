@@ -1,0 +1,21 @@
+<div class="row container description">
+    <div class="card left-card">
+        <div class="card-body">
+            <%= render "sidebar" %>
+        </div>
+    </div>
+    <div class="card right-card">
+        <div class="card-header">
+            Description
+        </div>
+        <div class="card-body">
+            <%= form_for @room do |f| %>
+                <p>Room name</p>
+                <%= f.text_field :room_type, autofocus: true, autocomplete: "room_name", class: "input-wid form-control mb-4" %>
+                <p>Summary</p>
+                <%= f.text_area :summary, autofocus: true, autocomplete: "summry", class: "input-wid form-control" %>
+                <%= f.submit "Save", class: "btn btn-info btn-block mt-4 mb-4" %>
+            <% end %>
+        </div>
+    </div>
+</div>

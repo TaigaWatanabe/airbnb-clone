@@ -1,0 +1,39 @@
+<div class="row container listing">
+    <div class="card left-card">
+        <div class="card-body">
+            <%= render "sidebar" %>
+        </div>
+    </div>
+    <div class="card right-card">
+        <div class="card-header">
+            Room
+        </div>
+        <div class="card-body">
+            <%= form_for @room do |f| %>
+                <div class="row row-cols-3">
+                    <div class="col">
+                        <h5>Home Type</h5>
+                        <%= f.select :home_type, {'Apartment': 'Apartment', 'House': 'House', 'Bed & Breakfast': 'Bed & Breakfast'}, { include_blank: 'Select...'}, { class: 'form-control' } %>
+                    </div>
+                    <div class="col">
+                        <h5>Room Type</h5>
+                        <%= f.select :room_type, {'Entire': 'Entire', 'Private': 'Private', 'Shared': 'Shared'}, { include_blank: 'Select...'}, { class: 'form-control' } %>
+                    </div>
+                    <div class="col">
+                        <h5>Guests</h5>
+                        <%= f.select :accommodation, {'1': 1, '2': 2, '3': 3, '4+': 4}, { include_blank: 'Select...'}, { class: 'form-control' } %>
+                    </div>
+                    <div class="col mt-3">
+                        <h5>Bedrooms</h5>
+                        <%= f.select :bedroom_count, {'1': 1, '2': 2, '3': 3, '4+': 4}, { include_blank: 'Select...'}, { class: 'form-control' } %>
+                    </div>
+                    <div class="col mt-3">
+                        <h5>Bathrooms</h5>
+                        <%= f.select :bathroom_count, {'1': 1, '2': 2, '3': 3, '4+': 4}, { include_blank: 'Select...'}, { class: 'form-control' } %>
+                    </div>
+                </div>
+                <%= f.submit "Create My Room", class: "btn btn-info btn-block mt-4" %>
+            <% end %>
+        </div>
+    </div>
+</div>

@@ -68,9 +68,111 @@
   .right-card {
     width: 75%;
   }
+}
+//_sidebar.html.erb
+.sidebar {
+  .line {    
+    border-top: 1px silver solid;
 
-  .property {
-    
+     .publish {
+       width: 100%;
+       margin: 1em 0 1em 0;
+     }
+  }
+}
+
+//rooms/listing.html.erb
+
+.listing {
+  margin: auto;
+
+  .left-card {
+    height: 30%;
+    width: 20%;
+    margin-right: 5%;
   }
 
+  .right-card {
+    width: 75%;
+  }
+}
+
+//rooms/price.html.erb
+
+.price {
+  margin: auto;
+
+  .left-card {    
+    width: 20%;
+    margin-right: 5%;
+  }
+
+  .right-card {
+    width: 75%;
+    height: 50%;
+  }
+}
+
+//rooms/description.html.erb
+
+.description {
+  margin: auto;
+
+  .left-card {    
+    width: 20%;
+    margin-right: 5%;
+  }
+
+  .right-card {
+    width: 75%;
+    height: 50%;
+  }
+}
+
+//rooms/photos.html.erb
+
+.photos {
+  margin: auto;
+
+  .left-card {    
+    width: 20%;
+    margin-right: 5%;
+  }
+
+  .right-card {
+    width: 75%;
+    height: 50%;
+  }
+}
+
+//rooms/amenities.html.erb
+
+.amenities {
+  margin: auto;
+
+  .left-card {    
+    width: 20%;
+    margin-right: 5%;
+  }
+
+  .right-card {
+    width: 75%;
+    height: 50%;
+  }
+}
+
+//rooms/location.html.erb
+
+.location {
+  margin: auto;
+
+  .left-card {    
+    width: 20%;
+    margin-right: 5%;
+  }
+
+  .right-card {
+    width: 75%;
+    height: 50%;
+  }
 }

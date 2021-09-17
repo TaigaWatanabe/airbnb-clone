@@ -1,0 +1,13 @@
+<div class="sidebar">    
+    <div class="choices">
+        <p><%= link_to "Rooms",listing_room_path(@room), class: "text-info" %></p>
+        <p><%= link_to "Price",price_room_path(@room), class: "text-info" %></p>
+        <p><%= link_to "Description",description_room_path(@room), class: "text-info" %></p>
+        <p><%= link_to "Photos",photos_room_path(@room), class: "text-info" %></p>
+        <p><%= link_to "Amenities",amenities_room_path(@room), class: "text-info" %></p>
+        <p><%= link_to "Location",location_room_path(@room), class: "text-info" %></p>
+    </div>
+    <div class="line">
+        <%= link_to "Publish",rooms_path , class: "save-bnt btn btn-info publish" %>
+    </div>
+</div>
