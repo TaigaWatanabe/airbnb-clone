@@ -12,23 +12,23 @@
             <%= form_for @room do |f| %>
                 <div class="row row-cols-3">
                     <div class="col mt-3">
-                        <%= check_box_tag(:tv) %>
+                        <%= f.check_box :has_tv %>
                         <%= label_tag(:tv, "TV") %>
                     </div>
                     <div class="col mt-3">
-                        <%= check_box_tag(:kitchen) %>
+                        <%= f.check_box :has_kitchen %>
                         <%= label_tag(:kitchen, "Kitchen") %>
                     </div>
                     <div class="col mt-3">
-                        <%= check_box_tag(:internet) %>
+                        <%= f.check_box :has_internet %>
                         <%= label_tag(:internet, "Internet") %>
                     </div>
                     <div class="col mt-3">
-                        <%= check_box_tag(:heating) %>
+                        <%= f.check_box :has_heating %>
                         <%= label_tag(:heating, "Heating") %>
                     </div>
                     <div class="col mt-3">
-                        <%= check_box_tag(:air_conditioning) %>
+                        <%= f.check_box :has_conditioning %>
                         <%= label_tag(:air_conditioning, "Air Conditioning") %>
                     </div>   
                 </div>    
