@@ -41,6 +41,16 @@ class RoomsController < ApplicationController
   def location
     @room = Room.find(params[:id])
   end
+  
+  def update
+    @room = Room.find(params[:id])
+    if @room.update(room_params)
+      flash[:success] = "Saved succesfully"
+    else
+      flash[:danger] = "There were problems on update."
+    end
+    redirect_to request.referrer
+  end
 
   private
   def room_params
