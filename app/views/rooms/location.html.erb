@@ -1,0 +1,19 @@
+<div class="row container location">
+    <div class="card left-card">
+        <div class="card-body">
+            <%= render "sidebar" %>
+        </div>
+    </div>
+    <div class="card right-card">
+        <div class="card-header">
+            Location
+        </div>
+        <div class="card-body">
+            <%= form_for @room do |f| %>
+                <p>Address</p>
+                <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "input-wid form-control mb-4" %>                
+                <%= f.submit "Save", class: "btn btn-info btn-block mt-4 mb-4" %>
+            <% end %>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="row container photos">
+    <div class="card left-card">
+        <div class="card-body">
+            <%= render "sidebar" %>
+        </div>
+    </div>
+    <div class="card right-card">
+        <div class="card-header">
+            Photos
+        </div>
+        <div class="card-body">
+            <%= form_for @room do |f| %>
+                <p>Room name</p>            
+                <%= f.submit "Add Photos", class: "btn btn-info btn-block mt-4 mb-4" %>
+            <% end %>
+        </div>
+    </div>
+</div>
