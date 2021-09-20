@@ -1,4 +1,6 @@
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 .signup-field {
   margin: 1.5em 0;    
@@ -36,7 +38,7 @@
     
   }
 }
-// show.html.erb
+// user/show.html.erb
 
 .show-page {      
 
@@ -76,6 +78,14 @@
 }
 //_sidebar.html.erb
 .sidebar {
+
+  .choices {
+
+    .row {      
+      margin-bottom: 1em;
+    }
+  }
+
   .line {    
     border-top: 1px silver solid;
 
