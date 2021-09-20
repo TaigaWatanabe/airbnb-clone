@@ -1,0 +1,143 @@
+<div class="container rooms-show">
+    <%= image_tag @room.photos.first.image, class: "img-fluid mb-3" %> 
+    <%# class: "img-fluid mb-3" %>
+    <div class="row">
+        <%# left-card %>
+        <div class="left-card col-8">
+            <%# house name, address, user_name %>
+            <div class="row">
+                <div class="col-6">
+                    <div class="float-left">
+                        <h3 class="mt-3 mb-3"><%= @room.listing_name %></h3>
+                        <p><%= @room.address %></p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="float-right">
+                        <%= user_profile_image(current_user, "rounded-circle profile-middle") %>
+                        <p class="text-center"><%= @room.user.name %></p>
+                    </div>
+                </div>
+            </div>
+            <%# /house name, address, user_name %>
+            <%# room_content %>
+            <div class="text-center border-top border-bottom row leftcard-footer">
+                <div class="col-3 mt-3 mb-3">
+                    <%= image_tag "home.png", class: "image" %>
+                    <p><%= @room.room_type %><p>
+                </div>
+                <div class="col-3 mt-3 mb-3">
+                    <%= image_tag "person.png", class: "image" %>
+                    <p><%= @room.accommodation %> Guests<p>
+                </div>
+                <div class="col-3 mt-3 mb-3">
+                    <%= image_tag "bed.jpeg", class: "image" %>
+                    <p><%= @room.bedroom_count %> Betrooms<p>
+                </div>
+                <div class="col-3 mt-3 mb-3">
+                    <%= image_tag "bathroom.png", class: "image" %>
+                    <p><%= @room.bathroom_count %> Bathrooms<p>
+                </div>
+            </div>
+            <%# /room_content %>
+            <%# room's detail %>
+            <div class="about-room border-bottom">
+                <h3>About this room</h3>
+                <%= @room.summary %>
+            </div>
+            <div class="amenities border-bottom">
+                <div class="row">
+                    <div class="col-4">
+                        <h3>Amenities</h3>
+                    </div>
+                    <div class="col-8 row row-cols-3">
+                        <p class="col">
+                            <% if @room.has_tv? %>
+                                TV
+                            <% else %>
+                                <s class="text-secondary">TV</s>
+                            <% end %>
+                        </p>
+                        <p class="col">
+                            <% if @room.has_kitchen? %>
+                                Kitchen
+                            <% else %>
+                                <s class="text-secondary">Kitchen</s>
+                            <% end %>
+                        </p>
+                        <p class="col">
+                            <% if @room.has_internet? %>
+                                Internet
+                            <% else %>
+                                <s class="text-secondary">Internet</s>
+                            <% end %>
+                        </p>
+                        <p class="col">
+                            <% if @room.has_heating? %>
+                                Heating
+                            <% else %>
+                                <s class="text-secondary">Heating</s>
+                            <% end %>
+                        </p>
+                        <p class="col">
+                            <% if @room.has_air_conditioning? %>
+                                Air Conditioning
+                            <% else %>
+                                <s class="text-secondary">Air Conditioning</s>
+                            <% end %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <%# /room's detail %>
+            <%# room's photos %>
+            <div>
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <% @room.photos.each do |photo| %>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="<%= photo.id %>"></li>
+                        <% end %>
+                    </ol>
+                    <div class="carousel-inner">
+                        <% @room.photos.each do |photo| %>
+                            <div class="carousel-item bg-secondary <%= photo.id == @room.photos.first.id ? 'active' : '' %>" style="height: 600px;">
+                                <%= image_tag photo.image, class: "d-block h-100 mx-auto" %>
+                            </div>
+                        <% end %>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <%#= image_tag @room.photos.first.image, class: "img-fluid mt-3 mb-3" %>
+            </div>
+            <%# /room's photos %>
+        </div>
+        <%# /left-card %>
+        <%# right-card %>
+        <div class="right-card col-4">
+            <div class="card">
+                <div class="card-header">
+                    <p class="float-left">$<%= @room.price %></p>
+                    <p class="float-right">Per Night</p>
+                </div>   
+                <div class="card-body row">
+                        <div class="col-6">
+                            <p>Check In</p>
+                            <%# <input type="date" id="res-date" name="res-date"> %>
+                        </div>
+                        <div class="col-6">
+                            <p>Check Out</p>
+                        </div>
+                    <a href="#" class="btn btn-info booking-btn mt-4">Book now</a>
+                </div>
+            </div>
+        </div>
+        <%# /right-card %>        
+    </div>        
+</div>

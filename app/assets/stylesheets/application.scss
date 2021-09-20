@@ -67,6 +67,11 @@
 
   .right-card {
     width: 75%;
+
+    .update-btn{
+      height: 3em;
+      line-height: 2em;
+    }
   }
 }
 //_sidebar.html.erb
@@ -174,5 +179,44 @@
   .right-card {
     width: 75%;
     height: 50%;
+  }
+}
+
+//rooms/ahow.html.erb
+
+.rooms-show {
+
+  .left-card {
+
+    .leftcard-footer {
+      width: 100%;      
+    }
+
+    .image {
+      width: 25%;
+    }
+  }
+  
+
+  .right-card {
+
+    .card-header {
+      height: 3em;
+    }
+
+    .booking-btn {
+      width: 100%;
+      opacity: 0.6;
+    }
+  }
+
+  .about-room {    
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
+
+  .amenities {
+    padding-top: 2em;
+    padding-bottom: 2em;
   }
 }

@@ -53,6 +53,10 @@ class RoomsController < ApplicationController
     redirect_to request.referrer
   end
 
+  def show
+    @room = Room.find(params[:id])
+  end
+
   private
   def room_params
     params.require(:room).permit(:home_type, :room_type, :accommodation, :bedroom_count, :bathroom_count, :user_id, :price, :listing_name, :summary,
