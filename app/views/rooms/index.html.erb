@@ -12,7 +12,13 @@
             <% @rooms.each do |room| %>
                 <div class="container">
                     <div class="row">
-                        <div class="col-2" ><%= image_tag room.photos.first.image, width: "100" %></div>
+                        <div class="col-2" >
+                            <% if room.photos.blank? %>
+                                <%= image_tag "not-yet.jpeg", width: "100" %>
+                            <% else %>
+                                <%= image_tag room.photos.first.image, width: "100" %>
+                            <% end %>
+                        </div>
                         <div class="col-8"><%= link_to room.listing_name, room_path(room)  %></div>
                         <%= link_to "Update",listing_room_path(room), class: "save-bnt btn btn-info col-2 update-btn" %>
                         <%#= room.submit "Update", class: "save-bnt btn btn-info  form-control" %>

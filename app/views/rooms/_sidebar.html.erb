@@ -1,13 +1,66 @@
 <div class="sidebar">    
     <div class="choices">
-        <p><%= link_to "Rooms",listing_room_path(@room), class: "text-info" %></p>
-        <p><%= link_to "Price",price_room_path(@room), class: "text-info" %></p>
-        <p><%= link_to "Description",description_room_path(@room), class: "text-info" %></p>
-        <p><%= link_to "Photos",photos_room_path(@room), class: "text-info" %></p>
-        <p><%= link_to "Amenities",amenities_room_path(@room), class: "text-info" %></p>
-        <p><%= link_to "Location",location_room_path(@room), class: "text-info" %></p>
+        <div class="row">
+            <div class="col-9">
+                <%= link_to "Rooms",listing_room_path(@room), class: "text-info" %>
+            </div>
+            <div class="col-3">
+                <i class="fas fa-check"></i>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-9">
+                <%= link_to "Price",price_room_path(@room), class: "text-info" %>
+            </div>
+            <div class="col-3">
+                <% if !@room.price.blank? %>
+                    <i class="fas fa-check"></i>
+                <% end %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-9">
+                <%= link_to "Description",description_room_path(@room), class: "text-info" %>
+            </div>
+            <div class="col-3">
+                <% if !@room.listing_name.blank? && !@room.summary.blank? %>
+                    <i class="fas fa-check"></i>
+                <% end %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-9">
+                <%= link_to "Photos",photos_room_path(@room), class: "text-info" %>
+            </div>
+            <div class="col-3">
+                <% if !@room.photos.blank? %>
+                    <i class="fas fa-check"></i>
+                <% end %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-9">
+                <%= link_to "Amenities",amenities_room_path(@room), class: "text-info" %>
+            </div>
+            <div class="col-3">
+                <i class="fas fa-check"></i>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-9">
+                <%= link_to "Location",location_room_path(@room), class: "text-info" %>
+            </div>
+            <div class="col-3">
+                <% if !@room.address.blank? %>
+                    <i class="fas fa-check"></i>
+                <% end %>
+            </div>
+        </div>
     </div>
     <div class="line">
-        <%= link_to "Publish",rooms_path , class: "save-bnt btn btn-info publish" %>
+        <%= form_for @room do |f| %>
+            <%= f.hidden_field :is_active, value: true %>
+            <%= f.submit "Publish", class: "save-bnt btn btn-info publish", disabled: !is_ready?(@room) %>
+        <% end %>
     </div>
 </div>
