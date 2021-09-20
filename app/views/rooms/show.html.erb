@@ -117,6 +117,32 @@
                 <%#= image_tag @room.photos.first.image, class: "img-fluid mt-3 mb-3" %>
             </div>
             <%# /room's photos %>
+
+            <div id="map" class="mt-3 mb-3"></div>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfXoNJFnAa8MmCNVSxj2x1iFUmRVXk_xc"></script>
+
+            <script>
+                function initialize() {
+                    var location = {lat: Number("<%= @room.latitude %>"), lng: Number("<%= @room.longitude %>")};
+                    var map = new google.maps.Map(document.getElementById('map'),{
+                        center: location,
+                        zoom: 14
+                    });
+
+                    var marker = new google.maps.Marker({
+                        position: location,
+                        map: map
+                    });
+
+                    var infoWindow = new google.maps.InfoWindow({
+                        content: '<div id="content"><%= image_tag @room.photos.first.image, class: "w-100" %></div>'
+                    });
+
+                    infoWindow.open(map, marker);
+                }
+
+                google.maps.event.addDomListener(window,'load', initialize);
+            </script>
         </div>
         <%# /left-card %>
         <%# right-card %>
