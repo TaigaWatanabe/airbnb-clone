@@ -152,15 +152,85 @@
                     <p class="float-left">$<%= @room.price %></p>
                     <p class="float-right">Per Night</p>
                 </div>   
-                <div class="card-body row">
-                        <div class="col-6">
-                            <p>Check In</p>
-                            <%# <input type="date" id="res-date" name="res-date"> %>
+                <div class="card-body">
+                    <%= form_for([@room, @reservation]) do |f| %>
+                        <div class="row">
+                            <div class="col-6">
+                                <p>Check In</p>
+                                <%= f.text_field :start_date, id: "start_date", placeholder: "Start Date", readonly: true, class: "w-100 form-control" %>
+                            </div>
+                            <div class="col-6">
+                                <p>Check Out</p>
+                                <%= f.text_field :end_date, id: "end_date", placeholder: "End Date", readonly: true, class: "w-100 form-control", disabled: true %>
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <p>Check Out</p>
+                        <div id="preview" style="display: none;">
+                            <div class="row">
+                                <div class="col-6">
+                                    Price:
+                                </div>
+                                <div class="col-6">
+                                    <%= @room.price %>
+                                </div>
+                                <div class="col-6">
+                                    Night(s):
+                                </div>
+                                <div class="col-6">
+                                    <span id="nights"></span>
+                                </div>
+                                <div class="col-6">
+                                    Total:
+                                </div>
+                                <div class="col-6">
+                                    <span id="total-price"></span>
+                                </div>
+                            </div>
                         </div>
-                    <a href="#" class="btn btn-info booking-btn mt-4">Book now</a>
+                        <%= f.submit "Book now", id: "submit", class: "btn btn-info booking-btn mt-4", disabled: true %>
+                    <% end %>
+                    <script>
+                        $(function(){
+                            $("#start_date").datepicker({
+                                dateFormat: "dd-mm-yy",
+                                minDate: 0,
+                                maxDate: "3m",
+                                onSelect: function(selected){
+                                    $("#end_date").datepicker("option", "minDate", selected);
+                                    $("#end_date").attr("disabled", false);
+
+                                    var start_date = $("#start_date").datepicker("getDate");
+                                    var end_date = $("#end_date").datepicker("getDate");
+                                    var nights = (end_date - start_date)/1000/60/60/24;
+
+                                    if(start_date != null && end_date != null){
+                                        $("#preview").show()
+                                        $("#submit").attr("disabled", false)
+                                        $("#nights").text(nights);
+                                        $("#total-price").text(nights*<%= @room.price %>);
+                                    }
+                                }
+                            });
+                            $("#end_date").datepicker({
+                                dateFormat: "dd-mm-yy",
+                                minDate: 0,
+                                maxDate: "3m",
+                                onSelect: function(selected){
+                                    $("#start_date").datepicker("option", "maxDate", selected);
+
+                                    var start_date = $("#start_date").datepicker("getDate");
+                                    var end_date = $("#end_date").datepicker("getDate");
+                                    var nights = (end_date - start_date)/1000/60/60/24;
+
+                                    if(start_date != null && end_date != null){
+                                        $("#preview").show()
+                                        $("#submit").attr("disabled", false)
+                                        $("#nights").text(nights);
+                                        $("#total-price").text(nights*<%= @room.price %>);
+                                    }
+                                }
+                            });
+                        });
+                    </script>
                 </div>
             </div>
         </div>
