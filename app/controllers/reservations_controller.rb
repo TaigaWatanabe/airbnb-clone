@@ -20,6 +20,11 @@ class ReservationsController < ApplicationController
     redirect_to room_url(@room)
   end
 
+  def your_reservations
+    @room_ids = current_user.rooms.pluck(:id)
+    @reservations = Reservation.where(room_id: @room_ids)
+  end
+
   private
   def reservation_params
     params.require(:reservation).permit(:start_date, :end_date)
