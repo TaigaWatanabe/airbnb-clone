@@ -1,11 +1,5 @@
 <div class="row container rooms-index">
-    <div class="card left-card">
-        <div class="card-body">
-            <p><%= link_to "Your Rooms",rooms_path, class: "text-info" %></p>
-            <p><%= link_to "Your Reservations",rooms_path, class: "text-info" %></p>
-            <p><%= link_to "Your Trips",rooms_path, class: "text-info" %></p>
-        </div>
-    </div>
+    <%= render "layouts/rooms_sidebar" %>
     <div class="card right-card">
         <h5 class="card-header">Your Rooms</h5>
         <div class="card-body">

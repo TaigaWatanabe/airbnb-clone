@@ -240,3 +240,18 @@
 #content {
   width: 100px;
 }
+
+// reservations/your_reservations.html.erb
+.your_reservations {
+  margin: auto;
+
+  .left-card {
+    height: 30%;
+    width: 20%;
+    margin-right: 5%;
+  }
+
+  .right-card {
+    width: 75%;
+  }
+}
