@@ -25,6 +25,10 @@ class ReservationsController < ApplicationController
     @reservations = Reservation.where(room_id: @room_ids)
   end
 
+  def your_trips
+    @reservations = Reservation.where(user_id: current_user.id)
+  end
+
   private
   def reservation_params
     params.require(:reservation).permit(:start_date, :end_date)

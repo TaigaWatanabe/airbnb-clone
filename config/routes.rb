@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   end
 
   get '/your_reservations', to: 'reservations#your_reservations'
+  get '/your_trips', to: 'reservations#your_trips'
 end

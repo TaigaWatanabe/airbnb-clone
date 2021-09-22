@@ -1,0 +1,29 @@
+<div class="row container your_trips">
+    <%= render "layouts/rooms_sidebar" %>
+    <div class="card right-card">
+        <h5 class="card-header">Your Trips</h5>
+        <div class="card-body">
+            <% @reservations.each do |reservation| %>
+                <div class="container border-bottom pt-3 pb-3">
+                    <div class="row">
+                        <div class="col-3">
+                            <%= reservation.start_date %>
+                            <br>~<br>
+                            <%= reservation.end_date %>
+                        </div>
+                        <div class="col-3" >                            
+                            <%= image_tag reservation.room.photos.first.image, width: "100" %>                           
+                        </div>
+                        <div class="col-3">
+                            <%= link_to reservation.room.listing_name, "#" %><br>
+                            <%= link_to reservation.room.user.name, "#" %>
+                        </div>
+                        <div class="col-3">
+                            <%= link_to "Review Host", "#", class: "save-bnt btn btn-info update-btn" %>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
