@@ -21,4 +21,5 @@ Rails.application.routes.draw do
 
   get '/your_reservations', to: 'reservations#your_reservations'
   get '/your_trips', to: 'reservations#your_trips'
+  resources :reviews, only: :create
 end
