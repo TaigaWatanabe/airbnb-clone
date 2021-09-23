@@ -23,10 +23,12 @@ class ReservationsController < ApplicationController
   def your_reservations
     @room_ids = current_user.rooms.pluck(:id)
     @reservations = Reservation.where(room_id: @room_ids)
+    @review = Review.new
   end
 
   def your_trips
     @reservations = Reservation.where(user_id: current_user.id)
+    @review = Review.new
   end
 
   private

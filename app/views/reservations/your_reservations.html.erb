@@ -20,11 +20,11 @@
                         </div>
                         <div class="col-3">
                             <!-- Button trigger modal -->
-                            <button type="button" class="save-bnt btn btn-info update-btn" data-toggle="modal" data-target="#exampleModal">
+                            <button type="button" class="save-bnt btn btn-info update-btn" data-toggle="modal" data-target="#res-review-<%= reservation.id %>">
                                 Review Guest
                             </button>
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="res-review-<%= reservation.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -34,10 +34,22 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <textarea class="w-100 border"></textarea>
-                                            <div class="text-center mt-3">
-                                                <button type="button" class="save-bnt btn btn-info update-btn" data-dismiss="modal">Add Review</button> 
-                                            </div>
+                                            <%= form_for @review do |f| %>
+                                                <%= f.hidden_field :reservation_id, value: reservation.id %>
+                                                <%= f.hidden_field :room_id, value: reservation.room.id %>
+                                                <div id="stars_<%= reservation.id %>" class="text-center mb-2"></div>                                                
+                                                <script>
+                                                    $('#stars_<%= reservation.id %>').raty({
+                                                        path: '/assets',
+                                                        scoreName: 'review[rating]',
+                                                        score: 0
+                                                    });
+                                                </script>
+                                                <%= f.text_area :comment, class: "w-100 border" %>
+                                                <div class="text-center mt-3">                                                     
+                                                    <%= f.submit "Add Review", class: "save-bnt btn btn-info update-btn"  %>
+                                                </div>
+                                            <% end %>
                                         </div>                                        
                                     </div>
                                 </div>
