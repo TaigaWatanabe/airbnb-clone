@@ -5,8 +5,8 @@
     <%= form_for :search do |f| %>
         <div class="row mb-5 mt-5">
             <input class="form-control mr-sm-2 col-5" type="search" placeholder="Where are you going?" aria-label="Search">
-            <%= f.submit "Strat Date", class: "input-wid form-control col-2 ml-4" %>
-            <%= f.submit "End Date", class: "input-wid form-control col-2 ml-4" %>
+            <%= f.text_field :start_date, id: "start_date", placeholder: "Start Date", readonly: true, class: "form-control col-2 ml-4" %>
+            <%= f.text_field :end_date, id: "end_date", placeholder: "End Date", readonly: true, class: " form-control col-2 ml-4", disabled: true %>
             <%= f.submit "Serach", class: "input-wid form-control col-2 ml-4 btn-info" %>
         </div>
     <% end %>
@@ -20,19 +20,7 @@
                         <div class="card-body">
                             <%= link_to room.listing_name %><br>
                             $<%= room.price %> - <%= room.room_type %> - <%= room.bedroom_count %> Betrooms<br>
-                            <%#= stars %>                        
-                            <%= form_for @review do |f| %>
-                                <%= f.hidden_field :reservation_id, value: room.id %>
-                                <%= f.hidden_field :room_id, value: room.id %>
-                                <div id="stars_<%= room.id %>"></div>                                                
-                                <script>
-                                    $('#stars_<%= room.id %>').raty({
-                                        path: '/assets',
-                                        scoreName: 'review[rating]',
-                                        score: 0
-                                    });
-                                </script>
-                            <% end %>
+                            <%#= stars %>
                         </div>
                     </div>
                 </div>
