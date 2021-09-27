@@ -1,2 +1,41 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home-page container">
+    <div class="text-center">
+        <h4>Book unique places to stay and things to do.</h4>
+    </div>
+    <%= form_for :search do |f| %>
+        <div class="row mb-5 mt-5">
+            <input class="form-control mr-sm-2 col-5" type="search" placeholder="Where are you going?" aria-label="Search">
+            <%= f.text_field :start_date, id: "start_date", placeholder: "Start Date", readonly: true, class: "form-control col-2 ml-4" %>
+            <%= f.text_field :end_date, id: "end_date", placeholder: "End Date", readonly: true, class: " form-control col-2 ml-4", disabled: true %>
+            <%= f.submit "Serach", class: "input-wid form-control col-2 ml-4 btn-info" %>
+        </div>
+    <% end %>
+    <div class="mt-5">
+    <h1>Homes</h1>
+        <div class="card-deck row row-cols-3">
+            <% @rooms.each do |room| %>
+                <div class="col mb-3">
+                    <div class="card h-100">
+                        <%= image_tag room.photos.first.image%>
+                        <div class="card-body">
+                            <%= link_to room.listing_name %><br>
+                            $<%= room.price %> - <%= room.room_type %> - <%= room.bedroom_count %> Betrooms<br>
+                            <%#= stars %>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    <%# city's photo %>
+    <div class="mt-5 mb-5">
+        <h1>Cities</h1>
+        <div class="card-deck row row-cols-4">
+            <% @rooms.each do |room| %>
+                <div class="col mb-3">
+                    <%= image_tag room.photos.first.image, class: "w-100" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
