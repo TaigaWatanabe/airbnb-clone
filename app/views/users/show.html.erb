@@ -15,7 +15,84 @@
         </div>
         <%# right side %>
         <div class="col-8 ml-5">
-            <h5 class="user-name"><%= @user.name %></h5>
+            <h2 class="user-name"><%= @user.name %></h2>
+            <div>
+                <h5>Rooms(<%= @user.rooms.count %>)</h5>
+                <div class="card-deck row row-cols-3">
+                    <% @rooms.each do |room| %>
+                        <div class="col mb-3">
+                            <div class="card h-100">
+                                <%= image_tag room.photos.first.image%>
+                                <div class="card-body">
+                                    <%= link_to room.listing_name %><br>
+                                    $<%= room.price %> - <%= room.room_type %> - <%= room.bedroom_count %> Bedrooms<br>
+                                    <%#= stars %>
+                                    <div class="mt-3" id="stars_<%= room.id %>"></div>
+                                    <script>
+                                        $('#stars_<%= room.id %>').raty({
+                                            path: '/assets',
+                                            score: '<%= room.average_rating %>',
+                                            readOnly: true
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+                <%# review from guest %>
+                <div class="border-top border-bottom pt-3 pb-3">
+                    <h5 >Reviews From Guests (<%= @rooms.sum { |room| room.guest_reviews.count } %>)</h5>
+                    <% @rooms.each do |room| %>
+                        <% room.guest_reviews.each do |review| %>
+                            <div class="mt-3 row">
+                                <div class="col-4">
+                                    <%= user_profile_image(room.user, "rounded-circle profile-small") %><br>
+                                    <%= room.user.name %>
+                                </div>
+                                <div class="col-8">
+                                    <div id="guest_stars_<%= review.id %>"></div>
+                                    <script>
+                                        $('#guest_stars_<%= review.id %>').raty({
+                                            path: '/assets',
+                                            score: '<%= review.rating %>',
+                                            readOnly: true
+                                        });
+                                    </script>
+                                    <%= review.reservation.start_date %><br>
+                                    <%= review.comment %>
+                                </div>
+                            </div>
+                        <% end %>
+                    <% end %>
+                </div>
+                <%# review from host %>
+                <div class="border-bottom pt-3 pb-3 mb-5">
+                    <h5>Reviews From Host(<%= @rooms.sum { |room| room.host_reviews.count } %>)</h5>
+                    <% @rooms.each do |room| %>
+                        <% room.host_reviews.each do |review| %>
+                            <div class="mt-3 row">
+                                <div class="col-4">
+                                    <%= user_profile_image(room.user, "rounded-circle profile-small") %><br>
+                                    <%= room.user.name %>
+                                </div>
+                                <div class="col-8">
+                                    <div id="host_stars_<%= review.id %>"></div>
+                                    <script>
+                                        $('#host_stars_<%= review.id %>').raty({
+                                            path: '/assets',
+                                            score: '<%= review.rating %>',
+                                            readOnly: true
+                                        });
+                                    </script>
+                                    <%= review.reservation.start_date %><br>
+                                    <%= review.comment %>
+                                </div>
+                            </div>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
         </div>
     </div>
 </div>
