@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   root 'pages#home' 
+  get '/search', to: 'pages#search'
   resources :users, only: :show
   resources :rooms do
     member do
