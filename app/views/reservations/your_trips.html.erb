@@ -15,8 +15,8 @@
                             <%= image_tag reservation.room.photos.first.image, width: "100" %>                           
                         </div>
                         <div class="col-3">
-                            <%= link_to reservation.room.listing_name, "#" %><br>
-                            <%= link_to reservation.room.user.name, "#" %>
+                            <%= link_to reservation.room.listing_name, room_path(reservation.room) %><br>
+                            <%= link_to reservation.room.user.name, user_path(reservation.room.user) %>
                         </div>
                         <div class="col-3">
                             <!-- Button trigger modal -->

@@ -17,8 +17,11 @@
                     <% @photos.each do |photo| %>
                         <div class="col-4">
                             <div class="card">
-                                <%= image_tag photo.image, class: "w-100" %>
                                 <div class="card-body">
+                                    <%= image_tag photo.image, class: "w-100" %>
+                                </div>
+                                <div class="card-footer">
+                                    <%= link_to "Delete", room_photo_path(@room, photo), class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure?"} %>
                                 </div>
                             </div>
                         </div>

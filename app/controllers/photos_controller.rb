@@ -11,4 +11,11 @@ class PhotosController < ApplicationController
       redirect_to request.referer
     end
   end
+
+  def destroy
+    @photo = Photo.find(params[:id])
+    @photo.destroy
+
+    redirect_to request.referer
+  end
 end

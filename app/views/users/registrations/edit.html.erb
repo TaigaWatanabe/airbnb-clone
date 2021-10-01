@@ -9,7 +9,7 @@
         <h5 class="card-header text-center">Your Profile</h5>  
         <div class="card-body input-area">  
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-            <%= render "users/shared/error_messages", resource: resource %>
+            <%= render "shared/devise_messages", resource: resource %>
             <div class="field">        
                 <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "input-wid form-control" %>
             </div>
