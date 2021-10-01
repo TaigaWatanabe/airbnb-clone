@@ -1,12 +1,8 @@
 <% if flash.any? %>
-    <% flash.each do |type, msg|%>
-        <div class="container">
-            <div class="alert mt-3 alert-<%= type %> alert-dismissible fade show" role="alert">
-                <strong><%= msg%></strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        </div>
-    <% end %>
-<% end%>
+    <script type="text/javascript">
+        <% flash.each do |key, value| %>
+            <% type = key.to_s.gsub('alert', 'error').gsub('notice', 'success') %>
+            toastr['<%= type %>']('<%= value %>')
+        <% end %>
+    </script>
+<% end %> 

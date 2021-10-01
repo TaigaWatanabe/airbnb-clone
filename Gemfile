@@ -81,7 +81,7 @@ gem 'jquery-ui-rails', '~> 5.0'
 gem 'geocoder', '~> 1.4'
 
 gem 'omniauth', "~> 1.9.1"
-
+gem 'toastr-rails'
 #gem 'omniauth-facebook'
 
 gem 'activestorage'
