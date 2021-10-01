@@ -16,6 +16,9 @@ test:
 
 production:
   <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: airbnb-clone_production
   username: airbnb-clone
   password: <%= ENV['airbnb-clone_DATABASE_PASSWORD'] %>
